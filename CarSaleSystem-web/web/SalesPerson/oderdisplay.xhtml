@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Salesman to View Order</title>
+        <h:outputStylesheet name ="css/style.css" />
+    </h:head>
+    <h:body>
+        <header>
+            <h1>The oders of user</h1>
+        </header>
+        <article>
+            <h:form>
+                <div id="userstatus" style="float: right">#{ordersBean.name}&nbsp;&nbsp;<h:commandLink value="Logout" action="#{ordersBean.logout}"/></div>
+                <br />
+                <p>The Order Results</p>
+                <h:dataTable value="#{ordersBean.saleList}" var="sale" styleClass="saleTable" headerClass="saleTableHeader" 
+                                 rowClasses="saleTableOddRow,saleTableEvenRow">
+                    <h:column>    				
+                        <f:facet name="header">Sale Id</f:facet>    				
+                        #{sale.id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">SaleMan</f:facet>
+                        #{sale.salesPerson.firstName} &nbps;&nbps;#{sale.salesPerson.lastName}
+                    </h:column>    
+                    <h:column>
+                        <f:facet name="header">ModelName</f:facet>
+                        #{sale.car.modelName}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">ModelNo</f:facet>
+                        #{sale.car.modelNo}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Make</f:facet>
+                        #{sale.car.make}
+                    </h:column>           
+                    <h:column>
+                        <f:facet name="header">Price($)</f:facet>
+                        #{sale.car.price}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Picture</f:facet>
+                        <img src="#{sale.car.thumbnail}" height="100" width="180"/>
+                    </h:column> 
+                    
+                    <h:column>
+                        <f:facet name="header">Date</f:facet>
+                        #{sale.date}
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </article>
+        <footer>
+            <p>This project is created by Sen</p>
+        </footer>
+    </h:body>
+</html>
+

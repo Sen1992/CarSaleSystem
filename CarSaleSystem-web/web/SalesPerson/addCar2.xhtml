@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Add car</title>
+        <h:outputStylesheet name ="css/style.css" />
+    </h:head>
+    <h:body>
+        <header>
+            <h1>Enter some information for the car</h1>
+        </header>
+        <article>
+            <h:form id="addcarForm">
+                <div id="userstatus" style="float: right">#{addCar.name}&nbsp;&nbsp;<h:commandLink value="Logout" action="#{addCar.logout}"/></div>
+                <hr />        
+                <p>VIN:<h:message id="vin" for="vinInput" styleClass="error" /></p>
+                <h:inputText id="vinInput" maxlength="20" value="#{addCar.VIN}" required="true" requiredMessage="VIN No is null" onfocus="clearAlert()"></h:inputText>
+
+                <p>Make:<h:message id="mk" for="make" styleClass="error" /></p>
+                <h:inputText id="make" maxlength="20" value="#{addCar.make}" required="true" requiredMessage="Make is null" onfocus="clearAlert()"></h:inputText>
+
+                <p>Type:<h:message id="ty" for="Type" styleClass="error" /></p>
+                <h:selectOneMenu id="type" value="#{addCar.type}" required="true" requiredMessage="Type is null" onfocus="clearAlert()">
+                    <f:selectItem itemValue="Sedan" itemLabel="Sedan" />
+                    <f:selectItem itemValue="4 wheel drive" itemLabel="4 wheel drive" />
+                    <f:selectItem itemValue="Truck" itemLabel="Truck" />
+                </h:selectOneMenu>
+
+                <p>Thumbnail:<h:message id="th" for="thumbnail" styleClass="error" /></p>
+                <img src="#{addCar.thumbnai}" alt="No Picture"/>
+                
+                
+
+                <p>Description:<h:message id="desc" for="description" styleClass="error" /></p>
+                <h:outputText id="description" value="#{addCar.description}"></h:outputText>
+
+<!--                <p>PreviewURL:<h:link id="previewURL" value="#{addCar.previewURL}"></h:link></p>-->
+                <p><a href="#{addCar.previewURL}">#{addCar.previewURL}</a></p>
+
+                <hr />
+                <h:commandButton id = "submitButton" value="Submit" action="#{addCar.submit}"/>
+                <h:message id="submitAlert" for="submitButton" styleClass="error" />
+            </h:form>
+        </article>
+        <footer>
+            This project is created by Sen
+        </footer>
+        <script type="text/javascript">
+            function clearAlert() {    
+            message = document.getElementById("addcarForm:no");
+            message.textContent="";
+            message = document.getElementById("addcarForm:name");
+            message.textContent="";
+            message = document.getElementById("addcarForm:vin");
+            message.textContent="";
+            message = document.getElementById("addcarForm:mk");
+            message.textContent="";
+            message = document.getElementById("addcarForm:ty");
+            message.textContent="";
+            message = document.getElementById("addcarForm:th");
+            message.textContent=""; 
+            message = document.getElementById("addcarForm:desc");
+            message.textContent="";
+            message = document.getElementById("addcarForm:pre");
+            message.textContent=""; 
+        }   
+        </script>
+    </h:body>
+</html>
+

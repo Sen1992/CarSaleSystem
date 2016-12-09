@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Salesman to View Car</title>
+        <h:outputStylesheet name ="css/style.css" />
+
+    </h:head>
+    <h:body>
+        <header>
+            <h1>Enter some  attributes of a car</h1>
+        </header>
+        <article>
+            <h:form>
+                <div id="userstatus" style="float: right">#{searchCarBean.name}&nbsp;&nbsp;<h:commandLink value="Logout" action="#{searchCarBean.logout}"/></div>
+                <div id="searchInput" >
+                    <p>Model Name:<h:inputText id="modelname" value="#{searchCarBean.modelName}"></h:inputText>&nbsp;&nbsp;
+                    Model No:<h:inputText id="modelno" value="#{searchCarBean.modelNo}"></h:inputText>&nbsp;&nbsp;
+                    Make:<h:inputText id="make" value="#{searchCarBean.make}"></h:inputText>&nbsp;&nbsp;
+                    Type:<h:selectOneMenu id="type" value="#{searchCarBean.type}">
+                        <f:selectItem itemValue="All" itemLabel="All" />
+                        <f:selectItem itemValue="Sedan" itemLabel="Sedan" />
+                        <f:selectItem itemValue="4 wheel drive" itemLabel="4 wheel drive" />
+                        <f:selectItem itemValue="Truck" itemLabel="Truck" />
+                    </h:selectOneMenu>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <h:commandButton id="search" value="Search" action="#{searchCarBean.getAllCars}">
+                        <f:ajax execute="@form" render="@form" />
+                    </h:commandButton>
+                    </p>
+                    <hr />
+                </div>
+                <br />
+                <p>The Search Results</p>
+                <h:dataTable value="#{searchCarBean.carList}" var="car" styleClass="carTable" headerClass="carTableHeader" 
+                                 rowClasses="carTableOddRow,carTableEvenRow">
+                    <h:column>    				
+                        <f:facet name="header">Car Id</f:facet>    				
+                        <h:outputText value = "#{car.id}" />
+                    </h:column>
+                    
+                    <h:column>    				
+                        <f:facet name="header">Model Name</f:facet>    				
+                        #{car.modelName}
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">Model No</f:facet>
+                        #{car.modelNo}
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">Make</f:facet>
+                        #{car.make}
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">Price($)</f:facet>
+                        <h:outputText value="#{car.price}" />
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">Picture</f:facet>
+                        <img src="#{car.thumbnail}" height="100" width="180"/>
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">Status</f:facet>
+                        #{car.status}
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">Action</f:facet>
+                        <h:link value="details" outcome="detailOfCarForSalesMan">
+                            <f:param name ="theCarId" value="#{car.id}"></f:param>
+                        </h:link>
+                    </h:column>
+                   
+                    <h:column>
+                        <f:facet name="header">Action</f:facet>
+                        <h:commandButton value="Delete" action="#{searchCarBean.delete(car)}">
+                            <f:ajax execute="@form" render="@form" />
+                        </h:commandButton>
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">Action</f:facet>
+                        <h:link value="Update" outcome="updateCar">
+                            <f:param name ="VIN" value="#{car.VIN}"></f:param>
+                            <f:param name ="modelName" value="#{car.modelName}"></f:param>
+                            <f:param name ="modelNo" value="#{car.modelNo}"></f:param>
+                            <f:param name ="id" value="#{car.id}"></f:param>
+                            <f:param name ="make" value="#{car.make}"></f:param>
+                            <f:param name ="price" value="#{car.price}"></f:param>
+                            <f:param name ="description" value="#{car.description}"></f:param>
+                            <f:param name ="previewURL" value="#{car.previewURL}"></f:param>
+                            <f:param name ="status" value="#{car.status}"></f:param>
+                            <f:param name ="type" value="#{car.type}"></f:param>
+                            <f:param name ="thumbnail" value="#{car.thumbnail}"></f:param>
+                        </h:link>
+                    </h:column>
+                    
+                </h:dataTable>
+            </h:form>
+        </article>
+        <footer>
+            <p>This project is created by Sen</p>
+        </footer>
+    </h:body>
+</html>
+

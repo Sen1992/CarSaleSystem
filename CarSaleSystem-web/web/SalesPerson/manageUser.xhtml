@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Manage User</title>
+        <h:outputStylesheet name ="css/style.css" />
+    </h:head>
+    <h:body>
+        <header>
+            <h1>Enter some  attributes of a user</h1>
+        </header>
+        <article>
+            <h:form>
+                <div id="userstatus" style="float: right">#{manageUserBean.name}&nbsp;&nbsp;<h:commandLink value="Logout" action="#{manageUserBean.logout}"/></div>
+                <div>
+                    <p>
+                        User ID:<h:inputText value="#{manageUserBean.userId}"></h:inputText>&nbsp;&nbsp;
+                        Last Name:<h:inputText value="#{manageUserBean.lastName}"></h:inputText>&nbsp;&nbsp;
+                        First Name:<h:inputText value="#{manageUserBean.firstName}"></h:inputText>&nbsp;&nbsp;
+                        Email:<h:inputText value="#{manageUserBean.email}"></h:inputText>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <h:commandButton value="Search" action="#{manageUserBean.getUser}"/>
+                    </p>
+                    <hr />
+                </div>
+                <br />
+        
+                <p>The Search Results</p>
+                <h:dataTable value="#{manageUserBean.userList}" var="user" styleClass="carTable" headerClass="carTableHeader" 
+                                 rowClasses="carTableOddRow,carTableEvenRow">
+                <h:column>    				
+                    <f:facet name="header">User ID</f:facet>    				
+                        #{user.idUser}
+                    </h:column>
+                    <h:column>
+                    <f:facet name="header">Last Name</f:facet>
+                    #{user.lastName}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">First Name</f:facet>
+                        #{user.firstName}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Email</f:facet>
+                        #{user.email}
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">Oders</f:facet>
+                        <h:link value="#{user.numOfOrder}" outcome="oderdisplay">
+                            <f:param name ="userId" value="#{user.idUser}"></f:param>
+                        </h:link>
+                    </h:column>
+                </h:dataTable>
+    
+            </h:form>
+        </article>
+        <footer>
+            <p>This project is created by Sen</p>
+        </footer>
+    </h:body>
+</html>
+

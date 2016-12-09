@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Login the System</title>
+        <h:outputStylesheet name ="css/style.css" />
+    </h:head>
+    <h:body>
+        <header>
+            <h1>Welcome To The Car Sale System</h1>
+        </header>
+        <article>
+            <h:form id="loginItem">
+                <p>Username:<h:message for="username" styleClass = "error" /></p>
+                <h:inputText id="username" label="uname" size="32" value="#{loginBean.userName}" required="true" requiredMessage="  *You must enter a username!"></h:inputText>
+                <p>Password:<h:message for="password" styleClass = "error"/> </p>     
+                <h:inputSecret id ="password" label="pword" size="32" value="#{loginBean.passWord}" required="true" 
+                               requiredMessage="  *You must enter a password!" onfocus="clearAlert()"></h:inputSecret>
+ <!--               <p>User Type:<h:message for="type" styleClass = "error" /></p>
+                <h:selectOneRadio id="type" value="#{loginBean.type}" required="true" requiredMessage="  *You must select a type!">
+                    <f:selectItem itemValue="Customer" itemLabel="Customer" />
+                    <f:selectItem itemValue="SalesPerson" itemLabel="SalesPerson" />
+                </h:selectOneRadio> -->
+                <p><h:message id="alert" for="login" styleClass="error"></h:message></p>
+                <p><h:link value = "Sign up" outcome="register?faces-redirect=true"/>&nbsp;&nbsp;&nbsp;&nbsp;<h:commandButton id ="login" value="Login" action="#{loginBean.loginController}" /></p>
+            </h:form>
+        </article>
+        <footer>
+            <p>This project is created by Sen</p>
+        </footer>
+        <script type="text/javascript">
+            function clearAlert() {    
+            message = document.getElementById("loginItem:alert");
+            message.textContent="";
+        }   
+        </script>
+    </h:body>
+</html>
+

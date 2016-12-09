@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Add car</title>
+        <h:outputStylesheet name ="css/style.css" />
+    </h:head>
+    <h:body>
+        <header>
+            <h1>Enter some information for the car</h1>
+        </header>
+        <article>
+            <h:form>
+                <div id="userstatus" style="float: right">#{addCar.name}&nbsp;&nbsp;<h:commandLink value="Logout" action="#{addCar.logout}"/></div>
+                <hr />
+                <p>Model Name:<h:message id="name" for="modelname" styleClass="error" /></p>
+                <h:inputText id="modelname" maxlength="20" value="#{addCar.modelName}" required="true" requiredMessage="Model Name is null" onfocus="clearAlert()"></h:inputText>
+
+                <p>Model No:<h:message id="no" for="modelno" styleClass="error" /></p>
+                <h:inputText id="modelno" maxlength="10" value="#{addCar.modelNo}" required="true" requiredMessage="Model No is null" onfocus="clearAlert()"></h:inputText>
+<!--
+                <p>VIN:<h:message id="vin" for="vinInput" styleClass="error" /></p>
+                <h:inputText id="vinInput" maxlength="20" value="#{addCar.VIN}" required="true" requiredMessage="VIN No is null" onfocus="clearAlert()"></h:inputText>
+
+                <p>Make:<h:message id="mk" for="make" styleClass="error" /></p>
+                <h:inputText id="make" maxlength="20" value="#{addCar.make}" required="true" requiredMessage="Make is null" onfocus="clearAlert()"></h:inputText>
+
+                <p>Type:<h:message id="ty" for="Type" styleClass="error" /></p>
+                <h:selectOneMenu id="type" value="#{addCar.type}" required="true" requiredMessage="Type is null" onfocus="clearAlert()">
+                    <f:selectItem itemValue="Sedan" itemLabel="Sedan" />
+                    <f:selectItem itemValue="4 wheel drive" itemLabel="4 wheel drive" />
+                    <f:selectItem itemValue="Truck" itemLabel="Truck" />
+                </h:selectOneMenu>
+
+                <p>Thumbnail:<h:message id="th" for="thumbnail" styleClass="error" /></p>
+                <h:inputText id="thumbnail" value="#{addCar.thumbnai}" required="true" requiredMessage="Thumbnail is null" onfocus="clearAlert()"></h:inputText>
+
+                <p>Description:<h:message id="desc" for="description" styleClass="error" /></p>
+                <h:inputTextarea id="description" value="#{addCar.description}" required="true" requiredMessage="Description is null" onfocus="clearAlert()"></h:inputTextarea>
+
+                <p>PreviewURL:<h:message id="pre" for="previewURL" styleClass="error" /></p>
+                <h:inputText id="previewURL" maxlength="50" value="#{addCar.previewURL}" required="true" requiredMessage="PreviewURL is null" onfocus="clearAlert()"></h:inputText>
+
+                <hr />
+-->
+                <h:commandButton value="Continue" action="#{addCar.search}"></h:commandButton>
+            </h:form>
+        </article>
+        <footer>
+            This project is created by Sen
+        </footer>
+    </h:body>
+</html>
+

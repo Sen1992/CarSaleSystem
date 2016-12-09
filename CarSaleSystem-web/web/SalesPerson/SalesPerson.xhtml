@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>SalesPerson Page</title>
+        <h:outputStylesheet name ="css/style.css" />
+    </h:head>
+    <h:body>
+        <header>
+            <h1>Please select the service you need</h1>
+        </header>
+       
+        <article>
+            <h:form>
+                <h2>Services List</h2>
+                <div id="userstatus" style="float: right">#{viewCarBean.name}&nbsp;&nbsp;<h:commandLink value="Logout" action="#{viewCarBean.logout}"/></div>
+                        
+                <ul>
+                    <li><h:link value="View car" outcome="viewCar" /></li>
+                    <li><h:link value="Add car" outcome="addCar" /></li>
+                    <li><h:link value="Manage user" outcome="manageUser" /></li>
+                    
+                    
+                </ul>
+            </h:form>
+        </article>
+        <footer>
+            <p>This project is created by Sen</p>
+        </footer>
+    </h:body>
+</html>
+

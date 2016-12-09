@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Register</title>
+        <h:outputStylesheet name ="css/style.css" />    
+    </h:head>
+    <h:body>
+        <header>
+            <h1>Welcome To Register The Car Sale System</h1>
+        </header>
+        <article>
+            <h:form id="userForm">
+                <p>Last Name:<h:message for="lastName" styleClass="error" /></p>
+                <h:inputText id="lastName" label="lastName" size="32" value="#{registerBean.lastName}" maxlength="10" required="true" 
+                             validatorMessage="Lat Name not consist digits" requiredMessage="Last name is null">
+                    <f:validateRegex pattern="\D+" />
+                </h:inputText>
+                <p>First Name:<h:message for="firstName" styleClass="error" /></p>
+                <h:inputText id="firstName" label="firstName" size="32" value="#{registerBean.firstName}" maxlength="10" required="true" 
+                             validatorMessage="First Name not consist digits" requiredMessage="First name is not null">
+                    <f:validateRegex pattern="\D+" />
+                </h:inputText>
+                <p>Email:<h:message for="email" styleClass="error" /></p>
+                <h:inputText id="email" label="email" size="32" value="#{registerBean.email}" maxlength="50" required="true" 
+                             validatorMessage="The format of email is wrong" requiredMessage="email is null">
+                    <f:validateRegex pattern="^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$" />
+                </h:inputText>
+                <p>Type:<h:message for="type" styleClass="error" /></p>
+                <h:selectOneRadio id="type" value="#{registerBean.type}" required="true" requiredMessage="User type is null">
+                    <f:selectItem itemValue="Customer" itemLabel="Customer" />
+                    <f:selectItem itemValue="SalesPerson" itemLabel="SalesPerson" />
+                </h:selectOneRadio>
+                <p>Username:<h:message id="warn" for="username" styleClass="error" /></p>
+                <h:inputText id="username" label="uname" size="32" value="#{registerBean.userName}" maxlength="15" required="true" 
+                             requiredMessage="Username is null" ></h:inputText>
+                <p>Password:<h:message for="password" styleClass="error" /></p>
+                <h:inputText id="password" label="password" size="32" value="#{registerBean.passWord}" maxlength="15" required="true" requiredMessage="Password is null"></h:inputText>
+                <p>Address:<h:message for="address" styleClass="error" /></p>
+                <h:inputText id="address" label="address" size="32" value="#{registerBean.address}" maxlength="50" required="true" requiredMessage="Address is null"></h:inputText>
+                <p>Phone Number:<h:message for="phoneNum" styleClass="error" /></p>
+                <h:inputText id="phoneNum" label="phoneNum" size="32" value="#{registerBean.phoneNumber}" maxlength="11" required="true" 
+                             validatorMessage="the first one number must be 6 and the number must be 8 digits long or the first digit of 
+                             the phone number must be 1 and the number must be 11 digits long" requiredMessage="Phone number is null">
+                    <f:validateRegex pattern="\b1\d{10}\b|\b8\d{7}\b" />
+                </h:inputText>
+                <hr />
+                <h:commandButton id="register" value="Submit" action="#{registerBean.register}"></h:commandButton>
+            </h:form>
+        </article>
+        <footer>
+            <p>This project is created by Sen</p>
+        </footer>
+    </h:body>
+</html>
+

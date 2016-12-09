@@ -1,0 +1,51 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2016-7-29, 16:19:56
+    Author     : 王森
+*/
+/*Main Sections*/
+html    {background: #EAEAEA;}
+body    {background: #FFF;width: 960x;margin: 0 auto;font-family: sans-serif;padding-bottom: 5px;}
+header  {background: #9CF;height: 30px;padding: 20px;text-align:center;}
+article {padding: 20px;}
+footer  {background: #EEE;border: 1px solid #999;margin: 5px 10px;padding: 0 10px;}
+
+/* Headings*/
+header h1   {color: #FFF;margin: 0;}
+h2          {font-size: 30px;margin: 0;text-align: center}
+
+/*Form Element*/
+form p      {font-weight: bold;margin: 3;/*text-align:center;*/}
+input       {margin-bottom: 10px}
+textarea    {display: block;margin-bottom: 10px;height: 240px;width: 480px;}
+
+ul,li        {font-size: 20px;padding: 20px;text-align: center}
+
+div         {text-align:center;}
+
+selectOneRadio  {font-weight: bold;margin: 0;text-align:center;}
+
+/*error validation*/
+.error      {color: red;font-weight: bold}
+.carTable{   
+   border-collapse:collapse;
+   border:1px solid #000000;
+}
+
+.carTableHeader{
+   text-align:center;
+   border-bottom:1px solid #000000;  
+   padding:2px;
+}
+
+.carTableOddRow{
+   text-align:center;
+}
+
+.carTableEvenRow{
+   text-align:center;
+}
